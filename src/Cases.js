@@ -4,7 +4,6 @@ const CASES = {
   CAMEL: 'camelCase',
   PASCAL: 'PascalCase',
   UPPER: 'UPPER_CASE',
-  LOWER: 'lower_case',
 };
 
 module.exports = { CASES };

@@ -3,7 +3,8 @@
 // and import (require) them here
 const http = require('node:http');
 const { CASES } = require('./Cases');
-const { convertToCase, detectCase } = require('./convertToCase');
+const { convertToCase } = require('./convertToCase/convertToCase');
+const { detectCase } = require('./convertToCase/detectCase');
 
 function createServer() {
   const server = http.createServer((req, res) => {
@@ -48,7 +49,8 @@ function createServer() {
     }
 
     const originalCase = detectCase(textToConvert);
-    const convertedText = convertToCase(textToConvert, toCase);
+    const result = convertToCase(textToConvert, toCase);
+    const convertedText = result.convertedText;
 
     res.statusCode = 200;
 
