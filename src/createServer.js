@@ -49,7 +49,10 @@ function createServer() {
       return;
     }
 
-    const { originalCase, convertedText } = convertToCase(textToConvert, toCase);
+    const { originalCase, convertedText } = convertToCase(
+      textToConvert,
+      toCase,
+    );
 
     res.statusCode = 200;
 
