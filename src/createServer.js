@@ -4,7 +4,8 @@
 const http = require('node:http');
 const { CASES } = require('./Cases');
 const { convertToCase } = require('./convertToCase/convertToCase');
-const { detectCase } = require('./convertToCase/detectCase');
+
+// const { detectCase } = require('./convertToCase/detectCase');
 
 function createServer() {
   const server = http.createServer((req, res) => {
@@ -48,9 +49,7 @@ function createServer() {
       return;
     }
 
-    const originalCase = detectCase(textToConvert);
-    const result = convertToCase(toCase, textToConvert);
-    const convertedText = result.convertedText;
+    const { originalCase, convertedText } = convertToCase(textToConvert, toCase);
 
     res.statusCode = 200;
 
