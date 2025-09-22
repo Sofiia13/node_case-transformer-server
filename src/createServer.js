@@ -2,12 +2,13 @@
 // Also, you can create additional files in the src folder
 // and import (require) them here
 const http = require('node:http');
-const { convertToCase, detectCase, CASES } = require('./convertToCase');
+const { CASES } = require('./Cases');
+const { convertToCase, detectCase } = require('./convertToCase');
 
 function createServer() {
-  return http.createServer((req, res) => {
+  const server = http.createServer((req, res) => {
     const [path, queryString] = req.url.split('?');
-    const params = new URLSearchParams(queryString);
+    const params = new URLSearchParams(queryString || '');
     const toCase = params.get('toCase');
     const textToConvert = path.slice(1);
 
@@ -60,6 +61,8 @@ function createServer() {
       }),
     );
   });
+
+  return server;
 }
 
 module.exports = { createServer };
