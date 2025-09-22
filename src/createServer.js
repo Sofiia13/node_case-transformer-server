@@ -16,7 +16,7 @@ function createServer() {
     if (!textToConvert) {
       errors.push({
         message:
-        // eslint-disable-next-line max-len
+          // eslint-disable-next-line max-len
           'Text to convert is required. Correct request is: "/<TEXT_TO_CONVERT>?toCase=<CASE_NAME>".',
       });
     }
@@ -24,7 +24,7 @@ function createServer() {
     if (!toCase) {
       errors.push({
         message:
-        // eslint-disable-next-line max-len
+          // eslint-disable-next-line max-len
           '"toCase" query param is required. Correct request is: "/<TEXT_TO_CONVERT>?toCase=<CASE_NAME>".',
       });
     } else if (!CASES[toCase]) {
